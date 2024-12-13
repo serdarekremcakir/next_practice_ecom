@@ -1,13 +1,11 @@
-import fs from "fs";
-import path from "path";
-import mysql from "mysql2/promise";
-import dotenv from "dotenv";
-import { fileURLToPath } from "url";
-import { dirname } from "path";
+const fs = require("fs");
+const path = require("path");
+const mysql = require("mysql2/promise");
+const dotenv = require("dotenv");
 
 dotenv.config();
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const sqlFilePath = path.join(__dirname, "seed.sql");
 
 const pool = mysql.createPool({
   host: process.env.DB_HOST,
@@ -19,12 +17,11 @@ const pool = mysql.createPool({
 
 (async () => {
   try {
-    const sqlFilePath = path.join(__dirname, "seed.sql");
     const sqlContent = fs.readFileSync(sqlFilePath, "utf8");
 
     const queries = sqlContent.split(";").filter((query) => query.trim());
     for (const query of queries) {
-      await pool.query(query); 
+      await pool.query(query);
       console.log("Query running:", query.slice(0, 50), "...");
     }
 

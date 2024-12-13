@@ -35,7 +35,7 @@ export default function ProductList({ products: initialProducts, hasMore: initia
       const params = new URLSearchParams(searchParams.toString());
       params.set('page', nextPage.toString());
 
-      const response = await fetch(`http://localhost:3001/api/products?${params.toString()}`);
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/products?${params.toString()}`);
       const data = await response.json();
 
       setProducts(prevProducts => [...prevProducts, ...data.data]);

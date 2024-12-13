@@ -8,7 +8,7 @@ import { Review } from '@/lib/types';
 
 async function getUserReviews(userId: string, token: string) {
   try {
-    const res = await fetch(`http://localhost:3001/api/reviews/users/${userId}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/reviews/users/${userId}`, {
       headers: {
         'Authorization': `Bearer ${token}`,
       },

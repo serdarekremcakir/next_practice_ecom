@@ -24,7 +24,7 @@ export default async function ReviewsSection({
     // await new Promise((resolve) => setTimeout(resolve, 5000));
     try {
       const res = await fetch(
-        `http://localhost:3001/api/reviews/products/${params.id}`
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/reviews/products/${params.id}`
       );
       if (!res.ok) throw new Error("Failed to fetch reviews");
       const data = await res.json();

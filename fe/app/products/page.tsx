@@ -33,7 +33,7 @@ async function getProducts(params: FilterParams) {
 
 
     const response = await fetch(
-      `http://localhost:3001/api/products?${searchParams}`,
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/products?${searchParams}`,
       {
         cache: "no-store",
       }

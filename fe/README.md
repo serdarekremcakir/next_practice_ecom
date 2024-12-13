@@ -1,3 +1,5 @@
+# E-commerce Frontend
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
@@ -19,6 +21,17 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Demo
+
+You can access the **frontend demo** at the following URL:
+
+[http://demoecom.serdarcakir.online/](http://demoecom.serdarcakir.online/)
+
+To log in as a demo user, use the following credentials:
+
+- **Email:** 1@1.com
+- **Password:** 123123
 
 ## Learn More
 

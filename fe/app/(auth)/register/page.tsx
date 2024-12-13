@@ -35,7 +35,7 @@ export default function RegisterPage() {
       setIsLoading(true);
       setError("");
 
-      const response = await fetch("http://localhost:3001/api/auth/register", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -58,7 +58,7 @@ export default function RegisterPage() {
       const defaultMessage = "Registration failed";
       const errorMessage =
         error instanceof Error
-          ? error.message + defaultMessage
+          ? error.message + "" + defaultMessage
           : defaultMessage;
       setError(errorMessage);
       throw new Error(errorMessage);

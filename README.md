@@ -1,4 +1,3 @@
-```markdown
 # E-commerce Project Setup
 
 This project has both frontend and backend within the same folder structure. Follow the steps below to set up and run the project.
@@ -90,14 +89,25 @@ To set up and run the frontend, follow these steps:
    npm start
    ```
 
-## 4. Running the Project
+## 4. Demo Frontend URL
+
+You can access the **frontend demo** at the following URL:
+
+[http://demoecom.serdarcakir.online/](http://demoecom.serdarcakir.online/)
+
+To log in as a demo user, use the following credentials:
+
+- **Email:** 1@1.com
+- **Password:** 123123
+
+## 5. Running the Project
 
 After completing these steps, both the frontend and backend applications should be running. You can access the **frontend** in your browser.
 
 - The backend provides API services.
 - The frontend provides the user interface.
 
-## 5. Help
+## 6. Help
 
 If you encounter any issues while setting up the project, you can refer to the following resources:
 

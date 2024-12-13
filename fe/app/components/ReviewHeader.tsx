@@ -23,7 +23,7 @@ const ReviewHeader = ({
       if (!session?.user?.id) return;
       
       try {
-        const res = await fetch(`http://localhost:3001/api/reviews/products/${id}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/reviews/products/${id}`, {
           headers: {
             Authorization: `Bearer ${session.user.token}`,
           },

@@ -2,7 +2,7 @@ import ClientProductDetails from '@/components/ClientProductDetails';
 import { Container } from '@mui/material';
 
 async function getProduct(id: string) {
-  const res = await fetch(`http://localhost:3001/api/products/${id}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/products/${id}`, {
     cache: 'no-store'
   });
 

@@ -36,7 +36,7 @@ export default function ReviewForm({ productId }: ReviewFormProps) {
     try {
       setIsSubmitting(true);
       const res = await fetch(
-        `http://localhost:3001/api/reviews/products/${productId}`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/reviews/products/${productId}`,
         {
           method: "POST",
           headers: {
