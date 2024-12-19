@@ -10,6 +10,7 @@ declare module "next-auth" {
       token: string;
       createdAt?: string;
       updatedAt?: string;
+      expires?: string;
     };
   }
 
@@ -19,6 +20,7 @@ declare module "next-auth" {
     email: string;
     image?: string;
     token: string;
+    expires?: string;
   }
 
 }

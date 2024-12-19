@@ -24,9 +24,6 @@ async function getUserReviews(userId: string, token: string) {
 export default async function ProfileReviewsPage() {
   const session = await getServerSession(authOptions);
   
-  if (!session) {
-    redirect('/login');
-  }
 
   const reviews = await getUserReviews(session.user.id, session.user.token);
 

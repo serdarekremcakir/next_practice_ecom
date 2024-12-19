@@ -36,6 +36,7 @@ export const authOptions: NextAuthOptions = {
             name: data.user.name,
             image: data.user.image,
             token: data.token,
+            expires: data.expires,
           };
         } catch (error: unknown) {
           const defaultMessage = "Failed to login";
@@ -54,15 +55,28 @@ export const authOptions: NextAuthOptions = {
   },
   callbacks: {
     async jwt({ token, user }) {
-      return { ...token, ...user };
+      if(user){
+        token.token = user.token;
+        token.expires = user.expires;
+        token.id = user.id
+      }
+      return token;
     },
     async session({ session, token }) {
       session.user.id = token.id as string;
       session.user.token = token.token as string;
+
+      if(token.expires){
+        session.expires = token.expires;
+      }
+
       return session;
     },
   },
   session: {
     strategy: "jwt",
+    maxAge: 60 * 60 * 24
   },
+  secret: process.env.NEXTAUTH_SECRET,
+  debug: process.env.NODE_ENV === 'development'
 };

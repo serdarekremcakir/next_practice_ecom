@@ -72,20 +72,23 @@ export const login = async (
     const token = jwt.sign(
       { id: user.id, email: user.email },
       process.env.JWT_SECRET || 'your-secret-key',
-      { expiresIn: '1d' }
+      { expiresIn: '6h' }
     );
+
+    const decoded = jwt.decode(token) as { exp: number };
 
     // Return user info and token
     const userResponse: UserResponse = {
       id: user.id,
       name: user.name,
       email: user.email,
-      image: user.image
+      image: user.image,
     };
 
     res.json({
       user: userResponse,
-      token
+      token,
+      expires: decoded.exp * 1000,
     });
   } catch (error) {
     next(error);
