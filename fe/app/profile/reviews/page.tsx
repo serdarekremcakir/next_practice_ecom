@@ -5,6 +5,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { authOptions } from '@/lib/authOptions';
 import { Review } from '@/lib/types';
+import { Metadata } from 'next';
+
+
+export const metadata : Metadata = {
+  title: 'My Reviews',
+  description: 'Your reviews on products',
+}
 
 async function getUserReviews(userId: string, token: string) {
   try {
@@ -24,6 +31,9 @@ async function getUserReviews(userId: string, token: string) {
 export default async function ProfileReviewsPage() {
   const session = await getServerSession(authOptions);
   
+  if(!session){
+    redirect('/login');
+  }
 
   const reviews = await getUserReviews(session.user.id, session.user.token);
 

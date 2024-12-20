@@ -5,11 +5,6 @@ export default withAuth(
   async function middleware(req, res) {
 
 
-    // @ts-ignore
-    // if (req.nextauth?.token?.expires < Date.now()) {
-    //   return NextResponse.redirect(new URL('/logout', req.url));
-    // }
-
     if (req.nextUrl.pathname === "/") {
       return NextResponse.redirect(new URL("/products", req.url));
     }
@@ -19,9 +14,6 @@ export default withAuth(
   {
     callbacks: {
       authorized: async ({ req, token }) => {
-        // if(token?.expires < Date.now()) {
-        //   return false;
-        // }
         if (req.nextUrl.pathname === "/") {
           return true;
         }

@@ -3,6 +3,7 @@ import { type FilterParams, type Product } from "@/lib/types";
 import ProductList from "@/components/ProductList";
 import SearchFilters from "@/components/SearchFilters";
 import { Box, Container, Typography } from "@mui/material";
+import { Metadata } from "next";
 
 function normalizeProduct(product: Product): Product {
   return {
@@ -57,6 +58,11 @@ async function getProducts(params: FilterParams) {
     console.error("Error fetching products:", error);
     return { data: [], page: 1, limit: 12 };
   }
+}
+
+export const metadata: Metadata = {
+  title: 'Products',
+  description: 'Browse our products',
 }
 
 export default async function ProductsPage({

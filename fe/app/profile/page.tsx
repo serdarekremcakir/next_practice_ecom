@@ -3,6 +3,12 @@ import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { authOptions } from '@/lib/authOptions';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Profile',
+  description: 'User profile and settings',
+}
 
 export default async function ProfilePage() {
   const session = await getServerSession(authOptions);
